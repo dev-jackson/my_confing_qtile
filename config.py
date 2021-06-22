@@ -26,13 +26,16 @@
 
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget, qtile 
+from libqtile import bar, layout, widget, qtile, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 import os
 import random as rnd
+import subprocess
+
 mod = "mod4"
+home = os.path.expanduser('~')
 #terminal = guess_terminal()
 #terminal = "lxterminal"
 #terminal  = "alacritty"
@@ -207,6 +210,10 @@ layouts = [
     # layout.Zoomy(),
 ]
 
+#def shutdown_btn():
+#    result = question(title="Question",text="Shutdown yout pc?\nAutomatly shutdown 60 secons",timeout=60)
+#    print(result)
+
 widget_defaults = dict(
     font='Fira Code',
     fontsize=12,
@@ -271,6 +278,12 @@ screens = [
                     padding = 0,
                     fontsize = 18
                 ),
+                widget.CurrentLayoutIcon(
+                    custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons/")],
+                    background = colors[1],
+                    padding = 0,
+	                scale = 0.7
+                ),
                 widget.CurrentLayout(
                     font="Cascadia Code Bold",
                     padding = 5,
@@ -281,7 +294,15 @@ screens = [
                     background = colors[1],
                     foreground = colors[0],
                     padding = 0,
-                    font_size = 18
+                    fontsize = 18
+                ),
+                widget.TextBox(
+                    font="FontAwesome",
+                    text="  ",
+                    foreground=colors[3],
+                    background=colors[0],
+                    padding = 0,
+                    fontsize=18
                 ),
                 widget.Memory(
                     font="Cascadia Code Bold",
@@ -297,7 +318,7 @@ screens = [
                     background = colors[0],
                     foreground = colors[1],
                     padding = 0,
-                    font_size = 18
+                    fontsize = 18
                 ),
                 widget.CPU(
                     font="Cascadia Code Bold",
@@ -315,7 +336,7 @@ screens = [
                     background = colors[1],
                     foreground = colors[0],
                     padding = 0,
-                    font_size = 18
+                    fontsize = 18
                 ),
                 widget.TextBox(
                     font = "Cascadia Code Bold",
@@ -351,7 +372,7 @@ screens = [
                     background = colors[0],
                     foreground = colors[1],
                     padding = 0,
-                    font_size = 18
+                    fontsize = 18
                 ),
                 #widget.QuickExit(),
                 widget.Systray(
@@ -367,8 +388,8 @@ screens = [
                     text = '',
                     background = colors[1],
                     foreground = colors[3],
-                    padding = 1,
-                    font_size = 20
+                    padding = 0,
+                    fontsize = 18
                 ),
                 widget.Image(
                     filename = "~/.config/qtile/icons/power-button.svg",
@@ -377,13 +398,11 @@ screens = [
                     iconsize = 5,
                     foreground = colors[3],
                     mouse_callbacks = {
-                    'Button1' : lambda : qtile.cmd_spawn(
-                        'python3 ~/.config/qtile/scrips/notify.py'
-                    )
+                    'Button1' : lambda : qtile.cmd_spawn('sh '+home + '/.config/qtile/scrips/notify.sh')
                     }
                 ),
             ],
-            19,
+            20,
         ),
     ),
 ]
@@ -416,6 +435,13 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='dialog'),
     Match(wm_class='download'),  # GPG key password entry
 ])
+
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
+
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
@@ -444,7 +470,8 @@ auto_start = [
     "feh --bg-fill /home/jackson/.config/qtile/wallpapers/"+ list_wallpapers[num_rand] +" &"
     "sudo -S <<<'dev537'  ntpd -qg",
     "nm-applet &",
-    "netctl-auto enable-all"
+    "netctl-auto enable-all",
+    #"flameshot"
 ]
 
 for x in auto_start:
