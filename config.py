@@ -263,7 +263,9 @@ screens = [
                     padding = 10
                 ),
                 # widget.Prompt(),
-                widget.WindowName(),
+                widget.WindowName(
+                    font="Cascadia Code"
+                ),
                 widget.Chord(
                     padding = 5,
                     chords_colors={
@@ -471,6 +473,8 @@ auto_start = [
     "sudo -S <<<'dev537'  ntpd -qg",
     "nm-applet &",
     "netctl-auto enable-all",
+    "rclone --vfs-cache-mode writes mount onedrive: ~/onedrive & "
+    "volumeicon &"
     #"flameshot"
 ]
 
