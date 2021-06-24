@@ -142,6 +142,7 @@ keys = [
 
     #SCREENSHOTS
     Key([], "Print", lazy.spawn('flameshot full -c')),
+    #Key(["shift"], "Print", lazy.spawn('flameshot gui')),
     #Key([mod2, "shift" ], "Print", lazy.spawn('flameshot full -c')),
     #Key([mod2], "Print", lazy.spawn('flameshot full -p ' + home + '/Pictures')),
 
@@ -264,7 +265,7 @@ screens = [
                 ),
                 # widget.Prompt(),
                 widget.WindowName(
-                    font="Cascadia Code"
+                    font="Cascadia Code",
                 ),
                 widget.Chord(
                     padding = 5,
@@ -321,6 +322,12 @@ screens = [
                     foreground = colors[1],
                     padding = 0,
                     fontsize = 18
+                ),
+                widget.Image(
+                    filename = home +"/.config/qtile/icons/cpu.svg",
+                    background = colors[1],
+                    iconsize = 1,
+                    margin = 2
                 ),
                 widget.CPU(
                     font="Cascadia Code Bold",
@@ -438,6 +445,8 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='download'),  # GPG key password entry
 ])
 
+main = None
+
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
@@ -445,7 +454,7 @@ def start_once():
 
 
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+focus_on_window_activation = "focus" #or smart
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -470,12 +479,13 @@ auto_start = [
     "loadkeys us",
     "timedatectl set-timezone America/Guayaquil",
     "feh --bg-fill /home/jackson/.config/qtile/wallpapers/"+ list_wallpapers[num_rand] +" &"
-    "sudo -S <<<'dev537'  ntpd -qg",
-    "nm-applet &",
-    "netctl-auto enable-all",
+    "sudo -S <<<'dev537'  ntpd -qg &",
+    "netctl-auto enable-all &",
     "rclone --vfs-cache-mode writes mount onedrive: ~/onedrive & "
-    "volumeicon &"
-    #"flameshot"
+    "run volumeicon &",
+    #"run blueman-applet &"
+    "nm-applet &",
+    "flameshot &"
 ]
 
 for x in auto_start:

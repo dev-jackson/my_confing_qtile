@@ -7,9 +7,10 @@ function run {
   fi
 }
 
-run nm-applet &
-run volumeicon &
+nm-applet &
+volumeicon &
 blueman-applet &
+flameshot &
 #dunst &
 #run cbatticon &
 #numlockx
