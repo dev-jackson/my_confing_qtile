@@ -39,10 +39,17 @@ home = os.path.expanduser('~')
 #terminal = guess_terminal()
 #terminal = "lxterminal"
 #terminal  = "alacritty"
+
+@lazy.function
+def window_to_prev_group(qtile):
+    if qtile.currentWindow is not None:
+        i = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[i - 1].name)
+
 terminal = "tilix"
 keys = [
     Key([mod], "q", lazy.window.kill()),
-
+    Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "d", lazy.spawn('dmenu_run -i -fn "Cascadia Code-12" -nb "#000000" -sb "#2e86c1" -p "Run"')),
 
     # Switch between windows
@@ -188,7 +195,8 @@ def init_colors():
             ["#2e86c1", "#2e86c1"],
             ["#999999", "#999999"],
             ["#ffffff", "#ffffff"],
-            ["#000000", "#000000"]
+            ["#000000", "#000000"],
+            ["#FF2D00", "#FF2D00"],
             ]
 
 colors = init_colors()
@@ -389,6 +397,21 @@ screens = [
                     background = colors[1]
                 ),
                 widget.Sep(
+                    linewidth = 1,
+                    padding = 10,
+                    background = colors[1],
+                    foreground = colors[3]
+                ),
+                widget.Battery(
+                    charge_char = '⚡',
+                    discharge_char = ' ',
+                    full_char = '✔️',
+                    format = "{char}{percent:2.0%}",
+                    background = colors[1],
+                    update_interval = 1,
+                    #notify_below = lambda : qtile.cmd_spawn('sh zenity --warning --text="Low battery, connect charger."') 
+                ),
+                widget.Sep(
                     linewidth = 2,
                     background = colors[1],
                     foreground = colors[1]
@@ -445,7 +468,6 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='download'),  # GPG key password entry
 ])
 
-main = None
 
 @hook.subscribe.startup_once
 def start_once():
