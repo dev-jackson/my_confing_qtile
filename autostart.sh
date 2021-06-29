@@ -6,11 +6,11 @@ function run {
     $@&
   fi
 }
-
+#scrot
 nm-applet &
 volumeicon &
 blueman-applet &
-#flameshot &
+flameshot &
 timedatectl set-timezone America/Guayaquil
 # feh --bg-fill  + list_wallpapers[num_rand]
 feh --bg-scale /home/jackson/.config/qtile/wallpapers/landscape-colorful-pagoda-1555415.jpg
