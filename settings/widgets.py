@@ -1,4 +1,4 @@
-from libqtile import widget
+from libqtile import widget, qtile
 from .theme import colors
 
 def base_color(fg='text', bg='dark'):
@@ -19,6 +19,15 @@ def icon(fg='text', bg='dark', fontsize=16, text="?"):
         padding=3
     )
 
+def icon_btn(fg='text', bg='dark', fontsize=16, text="?", mouse_callbacks=None):
+    return widget.TextBox(
+        **base_color(fg=fg, bg=bg),
+        fontsize=fontsize,
+        text=text,
+        padding=3,
+        mouse_callbacks=mouse_callbacks
+    )
+
 def powerline(fg='light',bg='dark'):
     return widget.TextBox(
         **base_color(fg=fg,bg=bg),
@@ -30,7 +39,16 @@ def powerline(fg='light',bg='dark'):
 def workspaces():
     return [
         separator(),
-        icon(text='' ,fontsize=30,fg='light'),
+        icon_btn(
+            text='' ,
+            fontsize=30,
+            fg='color3',
+            mouse_callbacks= {
+                'Button1': lambda : qtile.cmd_spawn(
+                    'jgmenu_run'
+                )
+            }
+        ),
         separator(),
         widget.GroupBox(
             font='UbuntuMono Nerd Font',
@@ -38,7 +56,7 @@ def workspaces():
             margin_y=3,
             margin_x=0,
             padding_y=8,
-            padding_x=8,
+            padding_x=10,
             borderwidth=1,
             active=colors['active'],
             inactive=colors['inactive'],
@@ -50,10 +68,15 @@ def workspaces():
             this_screen_border=colors['grey'],
             other_current_screen_border=colors['dark'],
             other_screen_border=colors['dark'],
-            disable_drag=True
+            disable_drag=True,
+            background = colors['dark']
         ),
         separator(),
-        widget.WindowName(),
+        widget.WindowName(
+            font = "Cascadia Code Bold",
+            foreground = colors['color2'],
+            background = colors['dark']
+        ),
         separator()
     ]
 
