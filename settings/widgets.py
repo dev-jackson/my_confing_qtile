@@ -124,7 +124,15 @@ primary_widgets = [
     widget.Systray(
         background=colors['dark'],
         padding=5
-    )
+    ),
+    separator(),
+    widget.KeyboardLayout(
+        font="Cascadia Code Bold",
+        configured_keyboards=["us", "es"],
+        foreground=colors['color3'],
+        background=colors['dark']
+    ),
+    separator()
 ]
 
 secondary_widgets = [

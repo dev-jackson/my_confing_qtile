@@ -2,9 +2,12 @@
 from libqtile.config import Key
 from libqtile.command import lazy
 from .theme import colors
+
 mod = "mod4"
 
 color = colors['active']
+
+
 keys = [Key(key[0], key[1], *key[2:]) for key in  [
 
     ([mod], "q", lazy.window.kill()),
@@ -42,6 +45,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
     # multiple stack panes
     ([mod, "shift"], "Return", lazy.layout.toggle_split()),
     ([mod], "Return", lazy.spawn("alacritty")),
+
+    #Nigth
+    #([mod, "control"], "n", lazy.spawn('redshift -o')),
+    #([mod, "control"], "o", lazy.spawn('redshift -x')),
 
     # Toggle between different layouts as defined below
     ([mod], "Tab", lazy.next_layout()),
@@ -109,4 +116,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
     # INCREASE/DECREASE BRIGHTNESS
     ([], "XF86MonBrightnessUp", lazy.spawn("light -A 5")),
     ([], "XF86MonBrightnessDown", lazy.spawn("light -U 5")),
+
+    # Toggle floating layout
+    ([mod, "shift"], "space", lazy.window.toggle_floating()),
+
+    # Toggle next keyboard layout
+    ([mod, "control"], "space", lazy.widget["keyboardlayout"].next_keyboard())
 ]]
