@@ -10,6 +10,7 @@ color = colors['active']
 
 keys = [Key(key[0], key[1], *key[2:]) for key in  [
 
+
     ([mod], "q", lazy.window.kill()),
     ([mod], "f", lazy.window.toggle_fullscreen()),
     ([mod], "d", 

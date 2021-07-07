@@ -13,11 +13,12 @@ blueman-applet &
 flameshot &
 timedatectl set-timezone America/Guayaquil
 # feh --bg-fill  + list_wallpapers[num_rand]
-feh --bg-scale /home/jackson/.config/qtile/wallpapers/landscape-colorful-pagoda-1555415.jpg
+#feh --bg-scale /home/jackson/.config/qtile/wallpapers/landscape-colorful-pagoda-1555415.jpg
 sudo -S <<<'dev537'  ntpd -qg &
 netctl-auto enable-all &
 cbatticon -u 5 &
 picom &
+python3 ~/.config/qtile/wallpapers/random_wallpaper.py &
 #dunst &
 #run cbatticon &
 #numlockx

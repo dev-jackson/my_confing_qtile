@@ -100,7 +100,8 @@ primary_widgets = [
     widget.Net(
         **base_color(bg='color3', fg='light'),
         font="Cascadia Code Bold",
-        interface='wlp7s0'
+        interface='wlp7s0',
+        format='{down} \u2193\u2191 {up}'
     ),
     powerline('color2', 'color3'),
     widget.CurrentLayoutIcon(
