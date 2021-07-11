@@ -84,7 +84,7 @@ primary_widgets = [
     *workspaces(),
     separator(),
     powerline("color4", "dark"),
-    icon(bg="color4",fg='light', text=''),
+    icon(bg="color4",fg='light', text='ﮮ'),
     widget.CheckUpdates(
         font="Cascadia Code Bold",
         background=colors['color4'],

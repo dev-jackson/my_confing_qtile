@@ -17,8 +17,9 @@ timedatectl set-timezone America/Guayaquil
 sudo -S <<<'dev537'  ntpd -qg &
 netctl-auto enable-all &
 cbatticon -u 5 &
-picom &
+#picom &
 python3 ~/.config/qtile/wallpapers/random_wallpaper.py &
+picom --experimental-backends &
 #dunst &
 #run cbatticon &
 #numlockx
