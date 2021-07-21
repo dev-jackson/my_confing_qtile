@@ -9,7 +9,8 @@ function run {
 #scrot
 nm-applet &
 volumeicon &
-blueman-applet &
+#blueman-applet &
+./Mechvibes-2.3.0.AppImage &
 flameshot &
 timedatectl set-timezone America/Guayaquil
 # feh --bg-fill  + list_wallpapers[num_rand]
@@ -17,9 +18,11 @@ timedatectl set-timezone America/Guayaquil
 sudo -S <<<'dev537'  ntpd -qg &
 netctl-auto enable-all &
 cbatticon -u 5 &
-#picom &
-python3 ~/.config/qtile/wallpapers/random_wallpaper.py &
-picom --experimental-backends &
+picom &
+gnome-keyring-daemon &
+feh --bg-scale --randomize ~/.config/qtile/wallpapers/* 
+#python3 ~/.config/qtile/wallpapers/random_wallpaper.py &
+#picom --experimental-backends &
 #dunst &
 #run cbatticon &
 #numlockx

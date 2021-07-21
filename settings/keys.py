@@ -12,13 +12,16 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
 
 
     ([mod], "q", lazy.window.kill()),
-    ([mod], "f", lazy.window.toggle_fullscreen()),
+    ([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
     ([mod], "d", 
         lazy.spawn(
             'dmenu_run -i -fn "Cascadia Code-12" -nb "#000000"  -p "Run"'
         )
      ),
     ([mod], "m", lazy.spawn('rofi -show drun')),
+    ([mod], "p", lazy.spawn('pcmanfm')),
+    ([mod], "t", lazy.spawn('telegram-desktop')),
+    ([mod], "f", lazy.spawn('firefox')),
     # Switch between windows
     ([mod], "h", lazy.layout.left()),
     ([mod], "l", lazy.layout.right()),

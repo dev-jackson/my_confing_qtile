@@ -82,6 +82,10 @@ def workspaces():
 
 primary_widgets = [
     *workspaces(),
+    widget.Systray(
+        background=colors['dark'],
+        padding=5
+    ),
     separator(),
     powerline("color4", "dark"),
     icon(bg="color4",fg='light', text='ﮮ'),
@@ -122,9 +126,15 @@ primary_widgets = [
         format='%d/%m/%Y - %H:%M '
     ),
     powerline('dark','color1'),
-    widget.Systray(
-        background=colors['dark'],
-        padding=5
+    separator(),
+    #widget.CPUGraph(
+    #    **base_color(bg='color1', fg='light'),
+    #),
+    icon(text="",fg="light"),
+    widget.Memory(
+        font="Cascadia Code Bold",
+        foreground=colors['light'],
+        background=colors['dark']
     ),
     separator(),
     widget.KeyboardLayout(
