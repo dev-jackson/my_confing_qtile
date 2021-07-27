@@ -21,7 +21,8 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
     ([mod], "m", lazy.spawn('rofi -show drun')),
     ([mod], "p", lazy.spawn('pcmanfm')),
     ([mod], "t", lazy.spawn('telegram-desktop')),
-    ([mod], "f", lazy.spawn('firefox')),
+    #([mod], "f", lazy.spawn('firefox')),
+    ([mod,"mod1"], "c", lazy.spawn('chromium')),
     # Switch between windows
     ([mod], "h", lazy.layout.left()),
     ([mod], "l", lazy.layout.right()),

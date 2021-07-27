@@ -7,6 +7,7 @@ function run {
   fi
 }
 #scrot
+lxsession &
 nm-applet &
 volumeicon &
 #blueman-applet &
