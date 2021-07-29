@@ -7,7 +7,7 @@ import subprocess
 def status_bar(widgets):
     return bar.Bar(
         widgets,
-        20,
+        22,
         opacity=0.90
     )
 
