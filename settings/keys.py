@@ -23,6 +23,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
     ([mod], "t", lazy.spawn('telegram-desktop')),
     #([mod], "f", lazy.spawn('firefox')),
     ([mod,"mod1"], "c", lazy.spawn('chromium')),
+    ([mod,"mod1"], "m", lazy.spawn('min')),
     # Switch between windows
     ([mod], "h", lazy.layout.left()),
     ([mod], "l", lazy.layout.right()),
@@ -63,9 +64,11 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
     ([mod, "control"], "q", lazy.shutdown()),
     ([mod], "r", lazy.spawncmd()),
 
-    ([], "XF86AudioRaiseVolume", lazy.spawn('amixer -c 1 -q set Master 2dB+')),
-    ([], "XF86AudioLowerVolume", lazy.spawn('amixer -c 1 -q set Master 2dB-')),
-    
+    ([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 5")),
+    ([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5")),
+    ([], "XF86AudioMute", lazy.spawn("pamixer --toggle-mute")),
+    ([], "XF86AudioNext", lazy.spawn("xdotool key XF86AudioNext")),
+    ([], "XF86AudioPrev", lazy.spawn("xdotool key XF86AudioPrev")), 
     # RESIZE UP, DOWN, LEFT, RIGHT
     ([mod, "control"], "l",
         lazy.layout.grow_right(),
@@ -119,8 +122,8 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
     #Key([mod2], "Print", lazy.spawn('flameshot full -p ' + home + '/Pictures')),
 
     # INCREASE/DECREASE BRIGHTNESS
-    ([], "XF86MonBrightnessUp", lazy.spawn("light -A 5")),
-    ([], "XF86MonBrightnessDown", lazy.spawn("light -U 5")),
+    ([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+    ([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 
     # Toggle floating layout
     ([mod, "shift"], "space", lazy.window.toggle_floating()),

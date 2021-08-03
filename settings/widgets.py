@@ -31,9 +31,9 @@ def icon_btn(fg='text', bg='dark', fontsize=16, text="?", mouse_callbacks=None):
 def powerline(fg='light',bg='dark'):
     return widget.TextBox(
         **base_color(fg=fg,bg=bg),
-        text="",
-        fontsize=52,
-        padding=-9
+        text="",
+        fontsize=42,
+        padding=-1
     )
 
 def workspaces():
@@ -41,7 +41,7 @@ def workspaces():
         separator(),
         icon_btn(
             text='' ,
-            fontsize=30,
+            fontsize=20,
             fg='color3',
             mouse_callbacks= {
                 'Button1': lambda : qtile.cmd_spawn(
@@ -88,7 +88,7 @@ primary_widgets = [
     ),
     separator(),
     powerline("color4", "dark"),
-    icon(bg="color4",fg='light', text='ﮮ'),
+    icon(bg="color4",fg='light', text=''),
     widget.CheckUpdates(
         font="Cascadia Code Bold",
         background=colors['color4'],
@@ -96,7 +96,7 @@ primary_widgets = [
         colour_no_update=colors['text'],
         no_update_string='0',
         display_format='{updates}',
-        update_interval=5800,
+        #update_interval=800,
         custom_command='checkupdates'
     ),
     powerline('color3','color4'),
@@ -104,7 +104,7 @@ primary_widgets = [
     widget.Net(
         **base_color(bg='color3', fg='light'),
         font="Cascadia Code Bold",
-        interface='wlp7s0',
+        interface='wlan0',
         format='{down} \u2193\u2191 {up}'
     ),
     powerline('color2', 'color3'),
