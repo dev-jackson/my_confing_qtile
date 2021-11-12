@@ -11,7 +11,7 @@ lxsession &
 nm-applet &
 volumeicon &
 #blueman-applet &
-./Mechvibes-2.3.0.AppImage &
+#./Mechvibes-2.3.0.AppImage &
 flameshot &
 timedatectl set-timezone America/Guayaquil
 # feh --bg-fill  + list_wallpapers[num_rand]
@@ -19,12 +19,15 @@ timedatectl set-timezone America/Guayaquil
 #sudo -S <<<'dev537'  ntpd -qg &
 #netctl-auto enable-all &
 cbatticon -u 5 &
-picom &
+#picom &
 gnome-keyring-daemon &
-feh --bg-scale --randomize ~/.config/qtile/wallpapers/* 
+#feh --bg-scale --randomize ~/.config/qtile/wallpapers/* 
 #touchegg &
 #python3 ~/.config/qtile/wallpapers/random_wallpaper.py &
-#picom --experimental-backends &
+picom --experimental-backends &
 #dunst &
 #run cbatticon &
 #numlockx
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+#picom --config $HOME/.config/qtile/scripts/picom.conf &
+udiskie &

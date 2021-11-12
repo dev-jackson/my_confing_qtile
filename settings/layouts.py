@@ -7,7 +7,7 @@ from .theme import colors
 layout_conf = {
     'border_focus': colors['focus'][0],
     'border_width': 2,
-    'margin': 6
+    'margin': 4
 }
 
 layouts = [
@@ -17,7 +17,8 @@ layouts = [
     layout.MonadWide(**layout_conf),
     layout.Bsp(**layout_conf),
     layout.Matrix(**layout_conf),
-    layout.RatioTile(**layout_conf)
+    layout.RatioTile(**layout_conf),
+    layout.Floating(**layout_conf)
 ]
 
 floating_layout = layout.Floating(

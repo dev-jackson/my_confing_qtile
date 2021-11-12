@@ -41,7 +41,7 @@ def workspaces():
         separator(),
         icon_btn(
             text='' ,
-            fontsize=20,
+            fontsize=34,
             fg='color3',
             mouse_callbacks= {
                 'Button1': lambda : qtile.cmd_spawn(
@@ -56,13 +56,13 @@ def workspaces():
             margin_y=3,
             margin_x=2,
             padding_y=14,
-            padding_x=3,
+            padding_x=5,
             borderwidth=2,
             active=colors['active'],
             inactive=colors['inactive'],
             rounded=False,
-            highlight_method='line',
-            urgent_alert_method='line',
+            highlight_method='block',
+            urgent_alert_method='block',
             urgent_border=colors['urgent'],
             this_current_screen_border=colors['focus'],
             this_screen_border=colors['grey'],
@@ -82,10 +82,6 @@ def workspaces():
 
 primary_widgets = [
     *workspaces(),
-    widget.Systray(
-        background=colors['dark'],
-        padding=5
-    ),
     separator(),
     powerline("color4", "dark"),
     icon(bg="color4",fg='light', text=''),
@@ -102,7 +98,7 @@ primary_widgets = [
     powerline('color3','color4'),
     icon(bg='color3', fg='light',text=''),
     widget.Net(
-        **base_color(bg='color3', fg='light'),
+        **base_color(bg='color3', fg='dark'),
         font="Cascadia Code Bold",
         interface='wlan0',
         format='{down} \u2193\u2191 {up}'
@@ -114,27 +110,32 @@ primary_widgets = [
         scale=0.70
     ),
     widget.CurrentLayout(
-        **base_color(bg='color2',fg='light'), 
+        **base_color(bg='color2',fg='dark'),
         font="Cascadia Code Bold",
         padding=5
     ),
     powerline('color1', 'color2'),
     icon(bg="color1", fg='light' ,fontsize=17, text=''),
     widget.Clock(
-        **base_color(bg='color1', fg='light'),
+        **base_color(bg='color1', fg='dark'),
         font="Cascadia Code Bold",
         format="%A, %B %d  [%H:%M]"
     ),
-    powerline('dark','color1'),
-    separator(),
+    powerline('color4','color1'),
+    #separator(),
     #widget.CPUGraph(
     #    **base_color(bg='color1', fg='light'),
     #),
-    icon(text="",fg="light"),
+    icon(text="",fg="light", bg="color4"),
     widget.Memory(
         font="Cascadia Code Bold",
-        foreground=colors['light'],
-        background=colors['dark']
+        foreground=colors['dark'],
+        background=colors['color4']
+    ),
+    powerline('dark', 'color4'),
+    widget.Systray(
+        background=colors['dark'],
+        padding=5
     ),
     separator(),
     widget.KeyboardLayout(
@@ -143,7 +144,8 @@ primary_widgets = [
         foreground=colors['color3'],
         background=colors['dark']
     ),
-    separator()
+    separator(),
+
 ]
 
 secondary_widgets = [
