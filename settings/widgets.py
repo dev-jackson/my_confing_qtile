@@ -22,9 +22,11 @@ def icon(fg='text', bg='dark', fontsize=16, text="?"):
 def icon_btn(fg='text', bg='dark', fontsize=16, text="?", mouse_callbacks=None):
     return widget.TextBox(
         **base_color(fg=fg, bg=bg),
+        font="UbuntuMono Nerd Font",
         fontsize=fontsize,
         text=text,
-        padding=3,
+        padding=4,
+        margin_x=12,
         mouse_callbacks=mouse_callbacks
     )
 
@@ -40,8 +42,8 @@ def workspaces():
     return [
         separator(),
         icon_btn(
-            text='' ,
-            fontsize=34,
+            text=' ' ,
+            fontsize=18,
             fg='color3',
             mouse_callbacks= {
                 'Button1': lambda : qtile.cmd_spawn(

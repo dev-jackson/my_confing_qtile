@@ -19,14 +19,15 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
         )
      ),
     ([mod], "m", lazy.spawn('rofi -show drun')),
+    ([mod, "shift"], "m", lazy.spawn('rofi-zeal')),
     ([mod], "p", lazy.spawn('pcmanfm')),
     ([mod], "r", lazy.spawn('redshift -O 3500')),
     ([mod], "t", lazy.spawn('telegram-desktop')),
     ([mod], "f", lazy.spawn('firefox-developer-edition --force-device-scale-factor=1.5')),
     ([mod,"mod1"], "c", lazy.spawn('chromium --force-device-scale-factor=1.1')),
-    ([mod, "shift"], "b", lazy.spawn('brave --force-device-scale-factor=1.1')),
+    ([mod, "shift"], "b", lazy.spawn('brave --force-device-scale-factor=1.2')),
     ([mod,"mod1"], "m", lazy.spawn('min')),
-    ([mod, "shift"], "w", lazy.spawn('whatsapp-nativefier-dark  --force-device-scale-factor=1.1')),
+    ([mod, "shift"], "w", lazy.spawn('whatsapp-nativefier-dark  --force-device-scale-factor=1.2')),
     # Switch between windows
     ([mod], "h", lazy.layout.left()),
     ([mod], "l", lazy.layout.right()),
