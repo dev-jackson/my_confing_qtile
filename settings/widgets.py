@@ -34,8 +34,8 @@ def powerline(fg='light',bg='dark'):
     return widget.TextBox(
         **base_color(fg=fg,bg=bg),
         text="",
-        fontsize=42,
-        padding=-1
+        fontsize=60,
+        padding=-12
     )
 
 def workspaces():

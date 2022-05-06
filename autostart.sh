@@ -6,8 +6,11 @@ function run {
     $@&
   fi
 }
+
+killall -9 xsettingsd dunst xfce4-power-manager 
+
 #scrot
-lxsession &
+#lxsession &
 nm-applet &
 volumeicon &
 #blueman-applet &
@@ -21,13 +24,19 @@ timedatectl set-timezone America/Guayaquil
 cbatticon -u 5 &
 #picom &
 gnome-keyring-daemon &
-#feh --bg-scale --randomize ~/.config/qtile/wallpapers/* 
+feh --bg-scale --randomize ~/.config/qtile/wallpapers/* 
 #touchegg &
 #python3 ~/.config/qtile/wallpapers/random_wallpaper.py &
-picom --experimental-backends &
-#dunst &
 #run cbatticon &
 #numlockx
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
-#picom --config $HOME/.config/qtile/scripts/picom.conf &
+#/usr/lib/xfce4/notifyd/xfce4-notifyd &
+picom --config $HOME/.config/qtile/scripts/picom.conf  &
 udiskie &
+#xsettingsd &
+
+# if [[!`pidof xfce-polkit`]]; then
+#   /usr/lib/xfce-polkit/xfce-polkit
+# fi
+
+dunst &
+xfce4-power-manager &

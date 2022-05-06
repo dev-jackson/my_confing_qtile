@@ -13,7 +13,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
 
     ([mod], "w", lazy.window.kill()),
     ([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
-    ([mod], "d", 
+    ([mod], "d",
         lazy.spawn(
             'dmenu_run -i -fn "Cascadia Code-12" -nb "#000000"  -p "Run"'
         )
@@ -24,10 +24,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
     ([mod], "r", lazy.spawn('redshift -O 3500')),
     ([mod], "t", lazy.spawn('telegram-desktop')),
     ([mod], "f", lazy.spawn('firefox-developer-edition --force-device-scale-factor=1.5')),
-    ([mod,"mod1"], "c", lazy.spawn('chromium --force-device-scale-factor=1.1')),
-    ([mod, "shift"], "b", lazy.spawn('brave --force-device-scale-factor=1.15')),
-    ([mod,"mod1"], "m", lazy.spawn('min')),
-    ([mod, "shift"], "w", lazy.spawn('whatsapp-nativefier-dark  --force-device-scale-factor=1.2')),
+    ([mod], "c", lazy.spawn('chromium --force-device-scale-factor=1.1')),
+    ([mod], "b", lazy.spawn('brave --force-device-scale-factor=1.15')),
+    # ([mod], "w", lazy.spawn('whatsapp-nativefier-dark  --force-device-scale-factor=1.2')),
+
     # Switch between windows
     ([mod], "h", lazy.layout.left()),
     ([mod], "l", lazy.layout.right()),
@@ -54,7 +54,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
     # Split = all windows displayed
     # multiple stack panes
     ([mod, "shift"], "Return", lazy.layout.toggle_split()),
-    ([mod], "Return", lazy.spawn("alacritty")),
+    ([mod], "Return", lazy.spawn("kitty")),
 
     #Nigth
     #([mod, "control"], "n", lazy.spawn('redshift -o')),
@@ -72,7 +72,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
     ([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5")),
     ([], "XF86AudioMute", lazy.spawn("pamixer --toggle-mute")),
     ([], "XF86AudioNext", lazy.spawn("xdotool key XF86AudioNext")),
-    ([], "XF86AudioPrev", lazy.spawn("xdotool key XF86AudioPrev")), 
+    ([], "XF86AudioPrev", lazy.spawn("xdotool key XF86AudioPrev")),
     # RESIZE UP, DOWN, LEFT, RIGHT
     ([mod, "control"], "l",
         lazy.layout.grow_right(),
