@@ -2,6 +2,7 @@
 from libqtile.config import Key
 from libqtile.command import lazy
 from .theme import colors
+from .path import qtile_path 
 
 mod = "mod4"
 
@@ -12,6 +13,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
 
 
     ([mod], "w", lazy.window.kill()),
+    ([mod], "x", lazy.spawn("sh "+qtile_path+"/rofi/bin/powermenu")),
     ([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
     ([mod], "d",
         lazy.spawn(
