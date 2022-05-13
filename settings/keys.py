@@ -20,7 +20,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
             'dmenu_run -i -fn "Cascadia Code-12" -nb "#000000"  -p "Run"'
         )
      ),
-    ([mod], "m", lazy.spawn('rofi -show drun')),
+    ([mod], "m", lazy.spawn("sh /home/jackson/.config/qtile/rofi/bin/launcher")),
     ([mod, "shift"], "m", lazy.spawn('rofi-zeal')),
     ([mod], "p", lazy.spawn('pcmanfm')),
     ([mod], "r", lazy.spawn('redshift -O 3500')),

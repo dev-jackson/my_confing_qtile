@@ -4,7 +4,7 @@
 configuration {
     location: 						0;
     fixed-num-lines: 				true;
-    show-icons: 					false;
+    show-icons: 					true;
     sidebar-mode: 					true;
     scroll-method: 					1;
     window-format: 					"[{w}] ··· {c} ···   {t}";
@@ -28,9 +28,10 @@ configuration {
 window {
     border: 						1px;
     border-color: 					@selected;
-    border-radius: 					0px;
-    width: 							500px;
+    border-radius: 					20px;
+    width: 							600px;
     height: 						0px;
+
 }
 
 prompt {
@@ -39,6 +40,7 @@ prompt {
     background-color:             	@highlight;
     text-color: 					@background;
     padding:    					6px 10px 6px 10px;
+    border-radius:        50px;
 }
 
 textbox-prompt-colon {
@@ -101,6 +103,7 @@ element-text, element-icon {
 element {
     border: 						0px;
     padding: 						7px;
+    border-radius:      6px;
 }
 element normal.normal {
     background-color: 				@background;
@@ -126,7 +129,7 @@ element selected.urgent {
 }
 element selected.active {
     background-color: 				@background;
-    text-color:       				@selected;
+    text-color:       				@selected;  
 }
 element alternate.normal {
     background-color: 				@background;
@@ -139,6 +142,10 @@ element alternate.urgent {
 element alternate.active {
     background-color: 				@background;
     text-color:       				@foreground;
+}
+
+element-icon {
+    size: 20px;
 }
 
 sidebar {
