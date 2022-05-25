@@ -13,7 +13,7 @@ killall -9 xsettingsd dunst xfce4-power-manager
 #lxsession &
 nm-applet &
 volumeicon &
-#blueman-applet &
+blueman-applet &
 #./Mechvibes-2.3.0.AppImage &
 flameshot &
 timedatectl set-timezone America/Guayaquil

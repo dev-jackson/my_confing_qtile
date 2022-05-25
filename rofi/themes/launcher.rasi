@@ -14,7 +14,7 @@ configuration {
     display-windowcd: 				"";
     display-run: 					"";
     display-ssh: 					"";
-    display-drun: 					"";
+    display-drun: 					"";
     display-combi: 					"";
 }
 
