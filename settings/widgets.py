@@ -34,8 +34,8 @@ def powerline(fg='light',bg='dark'):
     return widget.TextBox(
         **base_color(fg=fg,bg=bg),
         text="",
-        fontsize=60,
-        padding=-12
+        fontsize=42,
+        padding=0
     )
 
 def workspaces():
@@ -124,7 +124,6 @@ primary_widgets = [
         format="%A, %B %d  [%H:%M]"
     ),
     powerline('color4','color1'),
-    #separator(),
     #widget.CPUGraph(
     #    **base_color(bg='color1', fg='light'),
     #),

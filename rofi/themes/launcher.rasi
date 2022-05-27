@@ -21,7 +21,7 @@ configuration {
 @import "colors.rasi"
 
 * {
-    font:                           "Iosevka 10";
+    font:                           "FiraCodeNerdFont 11";
     background-color:             	@background;
 }
 
@@ -39,7 +39,7 @@ prompt {
     border: 						0;
     background-color:             	@highlight;
     text-color: 					@background;
-    padding:    					6px 10px 6px 10px;
+    padding:    					6px 14px 6px 10px;
     border-radius:        50px;
 }
 

@@ -70,9 +70,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
     ([mod, "control"], "q", lazy.shutdown()),
     ([mod], "r", lazy.spawncmd()),
 
-    ([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 5")),
-    ([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5")),
-    ([], "XF86AudioMute", lazy.spawn("pamixer --toggle-mute")),
+    ([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
+    ([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
+    ([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
     ([], "XF86AudioNext", lazy.spawn("xdotool key XF86AudioNext")),
     ([], "XF86AudioPrev", lazy.spawn("xdotool key XF86AudioPrev")),
     # RESIZE UP, DOWN, LEFT, RIGHT
