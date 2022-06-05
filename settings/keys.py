@@ -22,12 +22,13 @@ keys = [Key(key[0], key[1], *key[2:]) for key in  [
      ),
     ([mod], "m", lazy.spawn("sh /home/jackson/.config/qtile/rofi/bin/launcher")),
     ([mod, "shift"], "m", lazy.spawn('rofi-zeal')),
-    ([mod], "p", lazy.spawn('pcmanfm')),
+    ([mod], "p", lazy.spawn('nemo')),
     ([mod], "r", lazy.spawn('redshift -O 3500')),
     ([mod], "t", lazy.spawn('telegram-desktop')),
-    ([mod], "f", lazy.spawn('firefox-developer-edition --force-device-scale-factor=1.5')),
-    ([mod], "c", lazy.spawn('chromium --force-device-scale-factor=1.1')),
+    ([mod], "f", lazy.spawn('firefox-developer-edition')),
+    ([mod], "c", lazy.spawn('chromium --force-device-scale-factor=1.01')),
     ([mod], "b", lazy.spawn('brave --force-device-scale-factor=1.15')),
+    ([mod], "v", lazy.spawn('code')),
     # ([mod], "w", lazy.spawn('whatsapp-nativefier-dark  --force-device-scale-factor=1.2')),
 
     # Switch between windows

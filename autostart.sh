@@ -7,17 +7,16 @@ function run {
   fi
 }
 
-killall -9 xsettingsd dunst xfce4-power-manager 
+killall -9 xsettingsd dunst xfce4-power-manager volumeicon  
 
 lxsession &
 nm-applet &
-volumeicon &
 blueman-applet &
 flameshot &
-timedatectl set-timezone America/Guayaquil
+timedatectl set-timezone America/Guayaquil &
 cbatticon -u 5 &
 gnome-keyring-daemon &
-feh --bg-scale --randomize ~/.config/qtile/wallpapers/* 
+feh --bg-scale --randomize ~/.config/qtile/wallpapers/* &
 #touchegg &
 #python3 ~/.config/qtile/wallpapers/random_wallpaper.py &
 picom --config $HOME/.config/qtile/scripts/picom.conf  &
@@ -30,4 +29,6 @@ fi
 
 dunst -conf ~/.config/qtile/scripts/dunstrc &
 xfce4-power-manager &
-betterlockscreen -u /home/jackson/.config/qtile/wallpapers
+betterlockscreen -u /home/jackson/.config/qtile/wallpapers &
+xscreensaver -no-splash &
+volumeicon &
